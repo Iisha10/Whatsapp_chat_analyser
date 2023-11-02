@@ -47,3 +47,13 @@ if uploaded_file is not None:
                 st.pyplot(fig)
             with col2:
                 st.dataframe(new_df)
+        #wordcloud
+        st.title("WorldCloud")
+        df_wc=helper.create_worldcloud(selected_user, df)
+        fig, ax = plt.subplots()
+        ax.imshow(df_wc)
+        st.pyplot(fig)
+
+        #most common words
+        most_common_df=helper.most_common_used_words(selected_user, df)
+        st.dataframe(most_common_df)
